@@ -31,7 +31,7 @@ function findGetParameter(parameterName) {
 
 function getAccessToken(code){
     let request = new XMLHttpRequest()
-    request.open("POST", "https://api.instagram.com/oauth/access_token", true)
+    request.open("POST", "https://api.instagram.com/oauth/access_token", false)
     request.onreadystatechange = () => {
         if(request.readyState === XMLHttpRequest.DONE) {
             
