@@ -38,7 +38,7 @@ function getAccessToken(Code){
         if(request.readyState === XMLHttpRequest.DONE) {
             alert(`${request.status} : ${request.responseText}`)
             if (request.status === 0 || (request.status >= 200 && request.status < 400)) {
-                alert(request.responseText)
+                alert(JSON.parse(request.responseText))
 
                 
                 return JSON.parse(request.responseText);
