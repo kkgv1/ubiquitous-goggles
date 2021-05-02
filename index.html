@@ -118,7 +118,7 @@ function loadPost(id , token){
 
 // try{
     var code = findGetParameter("code")
-    var token = getAccessToken(code).access_token
+    var token = getAccessToken(code)
     alert(JSON.stringify(token))
     // var userid = getAccessToken(code).user_id
     // var username = getUsername(token , userid)
