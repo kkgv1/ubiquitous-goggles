@@ -87,7 +87,7 @@ function loadPost(id , token){
 
 function getAccessToken(Code){
     let request = new XMLHttpRequest()
-    request.open("POST", "https://api.instagram.com/oauth/access_token", true)
+    request.open("POST", "https://api.instagram.com/oauth/access_token", false)
 
 
     request.onload = () => {
