@@ -120,7 +120,7 @@ function getAccessToken(Code){
 // try{
     var code = findGetParameter("code")
     var token = getAccessToken(code)
-    alert(` out ${JSON.stringify(token)}`)
+    alert(` out ${JSON.parse(token).access_token}`)
 
     var accessToken = token.access_token
     var userid = token.userid
