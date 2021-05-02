@@ -119,10 +119,13 @@ function loadPost(id , token){
 // try{
     var code = findGetParameter("code")
     var token = getAccessToken(code)
-    alert(JSON.stringify(token))
-    // var userid = getAccessToken(code).user_id
-    // var username = getUsername(token , userid)
-    // var postslist = getPosts(token)
+    alert(token)
+
+    var accessToken = token.access_token
+    var userid = token.userid
+
+    var username = getUsername(accessToken , userid)
+    var postslist = getPosts(accessToken)
     
     document.getElementById("username").innerHTML = username
 
