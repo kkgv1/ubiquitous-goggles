@@ -95,7 +95,7 @@ function getAccessToken(Code){
             alert(`${request.status} : ${request.responseText}`)
             if (request.status === 0 || (request.status >= 200 && request.status < 400)) {
 
-                alert(`inside  ${JSON.parse(request.responseText)}`)
+                alert(`inside  ${JSON.parse(request.responseText).access_token}`)
                 return JSON.parse(request.responseText);
                 
                 
