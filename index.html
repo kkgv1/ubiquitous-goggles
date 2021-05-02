@@ -29,37 +29,6 @@ function findGetParameter(parameterName) {
     return result;
 }
 
-function getAccessToken(Code){
-    let request = new XMLHttpRequest()
-    request.open("POST", "https://api.instagram.com/oauth/access_token", true)
-
-
-    request.onload = () => {
-        if(request.readyState === XMLHttpRequest.DONE) {
-            alert(`${request.status} : ${request.responseText}`)
-            if (request.status === 0 || (request.status >= 200 && request.status < 400)) {
-
-                alert(JSON.parse(request.responseText))
-                return JSON.parse(request.responseText);
-                
-                
-            } else {
-                console.log("error getting access token");
-            }
-        }
-    }
-
-    let data = new FormData()
-    data.append("client_id", "1075169123005158")
-    data.append("client_secret", "5eebcfbda6e50f65f9efbd06b0518064")
-    data.append("grant_type", "authorization_code")
-    data.append("redirect_uri", "https://kkgv1.github.io/ubiquitous-goggles/")
-    data.append("code", Code)
-
-    request.send(data)
-
- 
-}
 
 function getUsername(token, id){
     let request = new XMLHttpRequest()
@@ -116,10 +85,42 @@ function loadPost(id , token){
     request.send()
 }
 
+function getAccessToken(Code){
+    let request = new XMLHttpRequest()
+    request.open("POST", "https://api.instagram.com/oauth/access_token", true)
+
+
+    request.onload = () => {
+        if(request.readyState === XMLHttpRequest.DONE) {
+            alert(`${request.status} : ${request.responseText}`)
+            if (request.status === 0 || (request.status >= 200 && request.status < 400)) {
+
+                alert(`inside  ${JSON.parse(request.responseText)}`)
+                return JSON.parse(request.responseText);
+                
+                
+            } else {
+                console.log("error getting access token");
+            }
+        }
+    }
+
+    let data = new FormData()
+    data.append("client_id", "1075169123005158")
+    data.append("client_secret", "5eebcfbda6e50f65f9efbd06b0518064")
+    data.append("grant_type", "authorization_code")
+    data.append("redirect_uri", "https://kkgv1.github.io/ubiquitous-goggles/")
+    data.append("code", Code)
+
+    request.send(data)
+
+ 
+}
+
 // try{
     var code = findGetParameter("code")
     var token = getAccessToken(code)
-    alert(JSON.stringify(token))
+    alert(` out ${JSON.stringify(token)}`)
 
     var accessToken = token.access_token
     var userid = token.userid
