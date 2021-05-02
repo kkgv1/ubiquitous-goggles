@@ -87,7 +87,7 @@ function getPosts(token){
     request.onreadystatechange = () => {
         if(request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 0 || (request.status >= 200 && request.status < 400)) {
-
+                alert(JSON.parse(request.responseText))
                 return JSON.parse(request.responseText)
 
             } else {
